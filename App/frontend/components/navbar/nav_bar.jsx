@@ -47,20 +47,16 @@ class NavBar extends React.Component {
   render() {
     return (
       <nav>
-        <div className="navbar small ">
+        <div className="navbar">
             <h1><a href="/"><img src="…" alt="EventNight Logo">EventNight</a></h1>
-            <ul className="wideDiv">
-                <li><a href="#">Link 1</a></li>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+            <p>searchbar placeholder</p>
+            <ul className='navlinks'>
+                <li><Link to '/'>Browse Events</Link></li>
+                <li>Organize</li>
+                <li>Help</li>
+                <li><a href="#">Sign in</a></li>
+                <li><a href="#">Create Event</a></li>
               </ul>
-          </div>
-          <div className="navNarrow">
-            <ul className="narrowLinks">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </ul>
         </div>
       </nav>
     );

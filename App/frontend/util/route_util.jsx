@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 
 // renders component if logged out, otherwise redirects to the root url
 const Auth = ({ component: Component, path, loggedIn, exact }) => (
