@@ -1,7 +1,9 @@
 {
   "name": "EventTonight",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "react-router-dom": "^4.2.2"
+  },
   "description": "",
   "version": "1.0.0",
   "main": "index.js",
