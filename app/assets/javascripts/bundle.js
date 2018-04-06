@@ -27679,12 +27679,7 @@ var App = function App() {
     _react2.default.createElement(_route_util.ProtectedRoute, { path: '/', component: _nav_bar_container2.default }),
     _react2.default.createElement(_route_util.AuthRoute, { exact: true, path: '/login', component: _signin_form_container2.default }),
     _react2.default.createElement(_route_util.AuthRoute, { exact: true, path: '/signup', component: _signup_form_container2.default }),
-    _react2.default.createElement(_route_util.AuthRoute, { exact: true, path: '/', component: _signup_form_container2.default }),
-    _react2.default.createElement(
-      'footer',
-      null,
-      'this is the footer'
-    )
+    _react2.default.createElement(_route_util.AuthRoute, { exact: true, path: '/', component: _signup_form_container2.default })
   );
 };
 
@@ -27976,7 +27971,11 @@ var SignInForm = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (SignInForm.__proto__ || Object.getPrototypeOf(SignInForm)).call(this, props));
 
     _this.state = {
-      username: 'Matthew',
+      username: 'Demo Account',
+      password: 'password'
+    };
+    _this.demoUser = {
+      username: 'Demo Account',
       password: 'password'
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
@@ -28026,13 +28025,19 @@ var SignInForm = function (_React$Component) {
           _react2.default.createElement(
             'h1',
             null,
-            'SIGN IN'
+            'E'
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Let\'s get started'
           ),
           _react2.default.createElement('br', null),
           _react2.default.createElement(
             'p',
             null,
-            'Enter your email to sign up or log in.'
+            'Enter your username and password to log in.'
           ),
           _react2.default.createElement('br', null),
           this.renderErrors(),
@@ -28043,18 +28048,36 @@ var SignInForm = function (_React$Component) {
             _react2.default.createElement(
               'label',
               null,
-              'Email address',
+              'Username ',
+              _react2.default.createElement('br', null),
               _react2.default.createElement('input', { type: 'text',
-                value: this.state.email,
-                onChange: this.update('email'),
+                value: this.state.username,
+                onChange: this.update('username'),
                 className: 'login-input'
               })
             ),
             _react2.default.createElement('br', null),
+            _react2.default.createElement(
+              'label',
+              null,
+              'Password',
+              _react2.default.createElement('br', null),
+              _react2.default.createElement('input', { type: 'password',
+                value: this.state.password,
+                onChange: this.update('password'),
+                className: 'login-input'
+              })
+            ),
             _react2.default.createElement('br', null),
-            _react2.default.createElement('input', { className: 'session-submit', type: 'submit', value: 'Get Started' })
+            _react2.default.createElement('input', { className: 'session-submit', type: 'submit', value: 'Log in' }),
+            _react2.default.createElement('br', null),
+            _react2.default.createElement('input', { className: 'session-submit demo', type: 'submit', value: 'Demo Account' })
           ),
-          this.props.navLink
+          _react2.default.createElement(
+            'p',
+            { className: 'switch-form' },
+            this.props.navLink
+          )
         )
       );
     }
@@ -28154,6 +28177,8 @@ var SignUpForm = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (SignUpForm.__proto__ || Object.getPrototypeOf(SignUpForm)).call(this, props));
 
     _this.state = {
+      username: '',
+      password: '',
       email: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
@@ -28203,13 +28228,19 @@ var SignUpForm = function (_React$Component) {
           _react2.default.createElement(
             'h1',
             null,
-            'SIGN UP'
+            'E'
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Let\'s get started'
           ),
           _react2.default.createElement('br', null),
           _react2.default.createElement(
             'p',
             null,
-            'Enter your email to sign up or log in.'
+            'Enter your username and password to sign up.'
           ),
           _react2.default.createElement('br', null),
           this.renderErrors(),
@@ -28220,18 +28251,46 @@ var SignUpForm = function (_React$Component) {
             _react2.default.createElement(
               'label',
               null,
-              'Email address',
+              'Username ',
+              _react2.default.createElement('br', null),
               _react2.default.createElement('input', { type: 'text',
+                value: this.state.username,
+                onChange: this.update('username'),
+                className: 'login-input'
+              })
+            ),
+            _react2.default.createElement('br', null),
+            _react2.default.createElement(
+              'label',
+              null,
+              'Email',
+              _react2.default.createElement('br', null),
+              _react2.default.createElement('input', { type: 'email',
                 value: this.state.email,
                 onChange: this.update('email'),
                 className: 'login-input'
               })
             ),
             _react2.default.createElement('br', null),
+            _react2.default.createElement(
+              'label',
+              null,
+              'Password',
+              _react2.default.createElement('br', null),
+              _react2.default.createElement('input', { type: 'password',
+                value: this.state.password,
+                onChange: this.update('password'),
+                className: 'login-input'
+              })
+            ),
             _react2.default.createElement('br', null),
             _react2.default.createElement('input', { className: 'session-submit', type: 'submit', value: 'Get Started' })
           ),
-          this.props.navLink
+          _react2.default.createElement(
+            'p',
+            { className: 'switch-form' },
+            this.props.navLink
+          )
         )
       );
     }

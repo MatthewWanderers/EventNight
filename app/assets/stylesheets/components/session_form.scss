@@ -1,3 +1,73 @@
-.session-form {
+.signin-form-box {
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  margin-left: -220px;
+  width: 360px;
+  padding: 20px;
+  background: #fff;
+  z-index: 3;
+  border-radius: 5px;
+  color: $fontColor;
+  font-size: 14px;
+}
 
+.signin-form-box h1 {
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  padding: 20px;
+  background: $tomato;
+  color: $white;
+  text-align: center;
+  font-size: 32px;
+  display: inline-block;
+  font-weight:bold;
+}
+
+.signin-form-box h2 {
+ margin-top: 20px;
+ font-size: 26px;
+}
+.signin-form {
+  text-align: left;
+}
+
+
+
+.signin-form label input {
+  border: 1px solid $borders;
+  border-radius: 2px;
+  padding: 10px;
+  width: 100%;
+  margin: 10px;
+  font-size: 16px;
+}
+
+.signin-form label input:hover {
+  border: 1px solid	#D3D3D3;
+}
+.signin-form label input:focus, textarea:focus {
+  border: 1px solid	#48c3c7;
+}
+
+.session-submit {
+  text-align: center;
+  margin: 10px;
+  color: $white;
+  padding: 12px;
+  width: 91%;
+  background: $tomato;
+  border-radius: 19px;
+  font-weight: bold;
+}
+
+.switch-form {
+  font-size: 16px;
+}
+
+.switch-form:hover {
+  color: #48c3c7;
 }

@@ -5,7 +5,11 @@ class SignInForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: 'Matthew',
+      username: 'Demo Account',
+      password: 'password'
+    };
+    this.demoUser = {
+      username: 'Demo Account',
       password: 'password'
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,26 +43,36 @@ class SignInForm extends React.Component {
     return (
       <div className="login-form-container session-form">
         <form onSubmit={this.handleSubmit} className="signin-form-box">
-          <h1>SIGN IN</h1>
+          <h1>E</h1>
           <br/>
-          <p>Enter your email to sign up or log in.</p>
+          <h2>Let's get started</h2>
+          <br/>
+          <p>Enter your username and password to log in.</p>
           <br/>
           {this.renderErrors()}
           <div className="signin-form">
             <br/>
-            <label>Email address
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="login-input"
-              />
-            </label>
+              <label>Username <br/>
+                <input type="text"
+                  value={this.state.username}
+                  onChange={this.update('username')}
+                  className="login-input"
+                />
+              </label>
             <br/>
-
+              <label>Password<br/>
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="login-input"
+                />
+              </label>
             <br/>
-            <input className="session-submit" type="submit" value="Get Started" />
+              <input className="session-submit" type="submit" value="Log in" />
+            <br/>
+              <input className="session-submit demo" type="submit" value="Demo Account" />
         </div>
-        {this.props.navLink}
+        <p className="switch-form">{this.props.navLink}</p>
         </form>
       </div>
     );
