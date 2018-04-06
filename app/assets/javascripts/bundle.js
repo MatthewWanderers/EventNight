@@ -4290,6 +4290,7 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     store = (0, _store2.default)();
   }
+  window.store = store.getState;
   var root = document.getElementById('root');
   _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 });
@@ -27927,6 +27928,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     login: function login(user) {
       return dispatch((0, _session_actions.login)(user));
+    },
+    receiveErrors: function receiveErrors(errors) {
+      return dispatch((0, _session_actions.receiveErrors)(errors));
     }
   };
 };
@@ -27990,6 +27994,11 @@ var SignInForm = function (_React$Component) {
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.props.receiveErrors([]);
     }
   }, {
     key: 'handleSubmit',
@@ -28133,6 +28142,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     signup: function signup(user) {
       return dispatch((0, _session_actions.signup)(user));
+    },
+    receiveErrors: function receiveErrors(errors) {
+      return dispatch((0, _session_actions.receiveErrors)(errors));
     }
   };
 };
@@ -28186,6 +28198,11 @@ var SignUpForm = function (_React$Component) {
   }
 
   _createClass(SignUpForm, [{
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.props.receiveErrors([]);
+    }
+  }, {
     key: 'update',
     value: function update(field) {
       var _this2 = this;
@@ -28434,9 +28451,11 @@ exports.default = function () {
   Object.freeze(state);
   switch (action.type) {
     case _session_actions.RECEIVE_CURRENT_USER:
+      console.log(action, "console logged");
       var currentUser = action.currentUser;
       return (0, _merge2.default)({}, { currentUser: currentUser });
     default:
+      console.log(state, 'default happened');
       return state;
   }
 };
