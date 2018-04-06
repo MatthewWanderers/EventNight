@@ -14,12 +14,12 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
 );
 
 // renders component if logged in, otherwise redirects to the login page
-const Protected = ({ component: Component, path, loggdIn, exact }) => (
+const Protected = ({ component: Component, path, loggedIn, exact }) => (
   <Route path={path} exact={exact} render={(props => (
       loggedIn? (
         <Component {...props} />
       ) : (
-        <Redirect to='/' />
+        <Redirect to='/login' />
       )
     ))}/>
 );

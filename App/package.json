@@ -2,7 +2,11 @@
   "name": "EventTonight",
   "private": true,
   "dependencies": {
-    "react-router-dom": "^4.2.2"
+    "concurrently": "^3.5.1",
+    "react-router-dom": "^4.2.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "webpack": "3.4.1"
   },
   "description": "",
   "version": "1.0.0",
@@ -10,8 +14,15 @@
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "rails s",
+    "frontend": "webpack --watch",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "postinstall": "webpack"
   },
   "keywords": [],
   "author": "",

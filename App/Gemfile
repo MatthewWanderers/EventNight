@@ -42,6 +42,9 @@ group :development, :test do
   gem 'pry-rails'
   gem 'annotate'
   gem 'jquery-rails'
+  gem 'guard', require: false
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
 end
 
 group :development do
