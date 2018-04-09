@@ -11,6 +11,7 @@
 #  organizer_description :string
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  location_id           :integer
 #
 
 class User < ApplicationRecord
@@ -22,6 +23,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_many :events, foreign_key: :organizer_id
+  has_many :hosted_events, foreign_key: :organizer_id, class_name: 'Event'
 
   def self.find_by_creds(username, password)
     user = User.find_by(username: username)
