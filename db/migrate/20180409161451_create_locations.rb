@@ -7,5 +7,9 @@ class CreateLocations < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+
+    add_column :users, :location_id, :integer
+    add_column :events, :location_id, :integer
+    add_column :events, :category_id, :integer
   end
 end

@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20180409161451) do
     t.datetime "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "location_id"
+    t.integer "category_id"
     t.index ["organizer_id"], name: "index_events_on_organizer_id"
   end
 
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(version: 20180409161451) do
     t.string "organizer_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "location_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
