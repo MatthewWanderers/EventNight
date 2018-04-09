@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city_name: MyString
+  description: MyString
+  header_img_url: MyString
+
+two:
+  city_name: MyString
+  description: MyString
+  header_img_url: MyString

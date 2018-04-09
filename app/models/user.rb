@@ -21,6 +21,8 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token
 
+  has_many :events, foreign_key: :organizer_id
+
   def self.find_by_creds(username, password)
     user = User.find_by(username: username)
     return nil unless user

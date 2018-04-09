@@ -7,4 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(username: 'Matthew', email: 'MattWanderers@gmail.com', password: 'password')
+# User.create(username: 'Matthew', email: 'MattWanderers@gmail.com', password: 'password')
+Event.create(title: "Demo Event 1", description: "update this to something interesting", organizer_id: 3, start: DateTime.now)

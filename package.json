@@ -30,7 +30,8 @@
   "scripts": {
     "server": "rails s",
     "frontend": "webpack --watch",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "guard": "bundle exec guard -P livereload",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\" \"npm run guard\"",
     "postinstall": "webpack"
   },
   "keywords": [],
