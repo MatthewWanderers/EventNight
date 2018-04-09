@@ -17,10 +17,10 @@
 #
 
 class Event < ApplicationRecord
-  validates :title, :description, :organizer_id, :start, presence: true
+  validates :title, :description, :organizer_id, :start, :location_id, presence: true
 
   belongs_to :organizer, foreign_key: :organizer_id, class_name: 'User'
-  belongs_to :location, foreign_key: :location_id
+  belongs_to :location, foreign_key: :location_id, class_name: 'Location'
 
   enum category_id: {
     Music: 0,

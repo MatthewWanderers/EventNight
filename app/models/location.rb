@@ -11,7 +11,7 @@
 #
 
 class Location < ApplicationRecord
-  validates :city_name, :description
+  validates :city_name, :description, presence: true
 
   has_many :events, foreign_key: :location_id
 end
