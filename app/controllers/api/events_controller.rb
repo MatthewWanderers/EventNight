@@ -1,5 +1,17 @@
 class Api::EventsController < ApplicationController
   def index
+    events = Event.all
+
+    if params[:location_id]
+      events = events.where(location_id: params[:location_id])
+    end
+
+    if params[:category_id]
+      events = events.where(category_id: params[:category_id])
+    end
+
+    @events = events.includes(:organizer)
+    render :index
   end
 
   def show
@@ -38,5 +50,19 @@ class Api::EventsController < ApplicationController
     else
       render json: ["You must be the event organizer"], status: 404
     end
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(
+      :title,
+      :description,
+      :organizer_id,
+      :img_url,
+      :address,
+      :start,
+      :end
+    )
   end
 end
