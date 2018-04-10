@@ -57,37 +57,9 @@ class EventShow extends React.Component {
 
   render() {
     if (this.props.event !== undefined) {
-
-      const { title, description, location, start_datetime, end_datetime,
-         img_url} = this.props.event;
-      const { bookmarks, eventId, currentUser } = this.props;
-      const startDateTime = new Date(start_datetime).toUTCString();
-      const startDay = startDateTime.slice(0, 4).toUpperCase();
-      const startDate = startDateTime.slice(5, 7);
-      const startMon = startDateTime.slice(8, 11).toUpperCase();
-      const startYear = startDateTime.slice(12, 16);
-      const startHour = (parseInt(startDateTime.slice(17,19)) > 12 )
-       ? parseInt(startDateTime.slice(17,19))
-        - 12 : parseInt(startDateTime.slice(17,19)) ;
-      const startMins = startDateTime.slice(20,22);
-      const startMeridiem = (parseInt(startDateTime.slice(17,19)) < 12)
-      ? 'AM': 'PM';
-      const formatStart = `${startDay} ${startMon} ${startDate}
-      ${startYear} ${startHour}:${startMins} ${startMeridiem}`;
-
-      const endDateTime = new Date(end_datetime).toUTCString();
-      const endDay = endDateTime.slice(0, 4).toUpperCase();
-      const endDate = endDateTime.slice(5, 7);
-      const endMon = endDateTime.slice(8, 11).toUpperCase();
-      const endYear = endDateTime.slice(12, 16);
-      const endHour = (parseInt(startDateTime.slice(17,19)) > 12 )
-       ? parseInt(startDateTime.slice(17,19))
-        - 12 : parseInt(startDateTime.slice(17,19)) ;
-      const endMins = startDateTime.slice(20,22);
-      const endMeridiem = (parseInt(endDateTime.slice(17,19)) < 12)
-      ? 'AM': 'PM';
-      const formatEnd = `${endDay} ${endMon} ${endDate} ${endYear}
-      ${endHour}:${endMins} ${endMeridiem}`;
+      const { title, description, address, city_name, organizer, organizer_description, start_time, end_time,
+         img_url } = this.props.event;
+      const { eventId, currentUser } = this.props;
 
       return (
         <div>
@@ -96,16 +68,17 @@ class EventShow extends React.Component {
               <div className='event-show-background-image-container'>
                 <img src={img_url} alt='Event Background Image' className='event-show-background-image'/>
               </div>
-                <div className='event-show-popup'>
-                  {this.renderErrors()}
-                  <div className='event-show-popup-header-container'>
-                    <img className='event-show-image' src={img_url} alt='Event Image'/>
-                    <div className='event-show-title-date'>
-                      <div className='event-show-mon'>{`${startMon}`}</div>
-                      <div className='event-show-date'>{`${startDate}`}</div>
-                      <div className='event-show-title'>{title}</div>
-                    </div>
+              <div className='event-show-popup'>
+                {this.renderErrors()}
+                <div className='event-show-popup-header-container'>
+                  <img className='event-show-image' src={img_url} alt='Event Image'/>
+                  <div className='event-show-title-date'>
+                    <div className='event-show-mon'>month placeholder</div>
+                    <div className='event-show-date'>{start_time}</div>
+                    <div className='event-show-title'>{title}</div>
+                    <div className='event-show-organizer'>by {organizer}</div>
                   </div>
+                </div>
 
                   <div className='show-divider'>
 
@@ -117,12 +90,16 @@ class EventShow extends React.Component {
                       <div className='event-description'>{description}</div>
                     </div>
                     <div className='event-location-time'>
-                      <div className='event-show-logistic-header'>STARTS</div>
-                      <div className='event-show-start-time'>{formatStart}</div>
-                      <div className='event-show-logistic-header'>ENDS</div>
-                      <div className='event-show-end-time'>{formatEnd}</div>
+                      <div className='event-show-logistic-header'>Date and Time</div>
+                      <div className='event-show-start-time'>{start_time}</div>
+                      <div className='event-show-logistic-header'>to</div>
+                      <div className='event-show-end-time'>{end_time}</div>
                       <div className='event-show-logistic-header'>LOCATION</div>
-                      <div className='event-show-location'>{location}</div>
+                      <div className='event-show-location'>{city_name}</div>
+                    </div>
+                    <div className='organizer-details'>
+                      <div className='organizer-description-header'>{organizer}</div>
+                      <div className='organizer-description'>{organizer_description}</div>
                     </div>
                   </div>
               </div>

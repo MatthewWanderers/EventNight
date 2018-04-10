@@ -15,6 +15,7 @@ class Api::EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @location = @event.location
   end
 
   def create

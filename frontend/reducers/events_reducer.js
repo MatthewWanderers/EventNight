@@ -5,7 +5,6 @@ import {
 import merge from 'lodash/merge';
 
 const eventReducer = (state = {}, action) => {
-  debugger
   Object.freeze(state);
   let newState = merge({}, state);
 

@@ -9,7 +9,8 @@ class EventIndexItem extends React.Component {
 
 render() {
   const { event,  } = this.props;
-    const startDateTime = new Date(event.start_datetime).toUTCString();
+  console.log(this.props);
+    const startDateTime = new Date(event.start).toUTCString();
     const day = startDateTime.slice(0, 4).toUpperCase();
     const date = startDateTime.slice(5, 7);
     const mon = startDateTime.slice(8, 11).toUpperCase();
