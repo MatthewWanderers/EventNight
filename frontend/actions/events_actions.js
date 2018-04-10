@@ -32,7 +32,7 @@ export const clearErrors = () => ({
 export const fetchEvents = filters => dispatch => (
   APIUtil.fetchEvents(filters)
   .then(events => dispatch(receiveEvents(events)),
-  err => dispatch(receiveEventErrors(err.response.JSON)))
+  err => dispatch(receiveEventErrors(err.responseJSON)))
 );
 
 export const fetchEvent = (id) => dispatch => (
@@ -40,12 +40,6 @@ export const fetchEvent = (id) => dispatch => (
     .then(event => dispatch(receiveEvent(event)),
     err => dispatch(receiveEventErrors(err.responseJSON)))
 );
-
-// export const fetchUserEvents = (userId) => dispatch => (
-//   APIUtil.fetchUserEvents(userId)
-//     .then(events => dispatch(receiveEvents(events)),
-//     err => dispatch(receiveEventErrors(err.responseJSON)))
-// );
 
 export const createEvent = (event) => dispatch => (
   APIUtil.createEvent(event)

@@ -17,7 +17,6 @@ export default (state = _nullUser, action) => {
       const currentUser = action.currentUser;
       return merge({}, { currentUser });
     default:
-    console.log(state, 'default happened');
       return state;
   }
 };

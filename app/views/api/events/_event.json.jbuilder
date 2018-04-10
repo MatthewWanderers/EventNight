@@ -7,4 +7,4 @@ json.extract! event, :id,
               :start,
               :category_id,
               :end
-json.image_url asset_path(event.image_url)
+# json.image_url asset_path(event.img_url)

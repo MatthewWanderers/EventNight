@@ -8,16 +8,18 @@ class SignInForm extends React.Component {
       username: 'Demo Account',
       password: 'password'
     };
-    this.demoUser = {
-      username: 'Demo Account',
-      password: 'password'
-    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
+    });
+  }
+  demoUserUpdate() {
+    return e => this.setState({
+      username: 'Demo Account',
+      password: 'password'
     });
   }
 
@@ -74,7 +76,10 @@ class SignInForm extends React.Component {
             <br/>
               <input className="session-submit" type="submit" value="Log in" />
             <br/>
-              <input className="session-submit demo" type="submit" value="Demo Account" />
+              <input className="session-submit demo"
+                    type="submit"
+                    value="Demo Account"
+                    onClick={this.demoUserUpdate()}/>
         </div>
         <p className="switch-form">{this.props.navLink}</p>
         </form>
