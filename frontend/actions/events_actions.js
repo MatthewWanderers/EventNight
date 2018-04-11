@@ -4,6 +4,7 @@ export const RECEIVE_EVENT_ERRORS = 'RECEIVE_EVENT_ERRORS';
 export const RECEIVE_EVENTS = 'RECEIVE_EVENTS';
 export const RECEIVE_EVENT = 'RECEIVE_EVENT';
 export const REMOVE_EVENT = 'REMOVE_EVENT';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const receiveEventErrors = (errors) => ({
   type: RECEIVE_EVENT_ERRORS,

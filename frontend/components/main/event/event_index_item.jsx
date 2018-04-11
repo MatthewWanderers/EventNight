@@ -7,21 +7,8 @@ class EventIndexItem extends React.Component {
     super(props);
   }
 
-render() {
-  const { event,  } = this.props;
-  console.log(this.props);
-    const startDateTime = new Date(event.start).toUTCString();
-    const day = startDateTime.slice(0, 4).toUpperCase();
-    const date = startDateTime.slice(5, 7);
-    const mon = startDateTime.slice(8, 11).toUpperCase();
-    const year = startDateTime.slice(12, 16);
-    const time = startDateTime.slice(17, 22);
-    const hour = (parseInt(startDateTime.slice(17,19)) > 12 )
-     ? parseInt(startDateTime.slice(17,19))
-      - 12 : parseInt(startDateTime.slice(17,19)) ;
-    const mins = startDateTime.slice(20,22);
-    const meridiem = (parseInt(startDateTime.slice(17,19)) < 12) ? 'AM': 'PM';
-
+  render() {
+    const { event,  } = this.props;
     return (
       <div className='event-index-item'>
         <Link to={`/events/${event.id}`}>
@@ -30,7 +17,7 @@ render() {
           </div>
           <div className='event-index-details-box'>
             <div className='event-index-item-start'>
-              {`${day} ${mon} ${date} ${year} ${hour}:${mins} ${meridiem}`}
+              {event.start_time}
             </div>
             <div className='event-index-item-title'>
               {event.title}

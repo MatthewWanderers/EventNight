@@ -28,21 +28,6 @@ class EventShow extends React.Component {
     }
   }
 
-  renderRegistration() {
-    if (this.props.registrations[this.props.eventId]) {
-      return (
-        <div className='show-registration-icon'>
-          <i className="fa fa-calendar" aria-hidden="true"
-            />
-          <h3 className='show-registration-ticket-count'>
-            My tickets: {this.props.registrations[this.props.eventId]
-              .num_tickets}
-            </h3>
-        </div>
-        );
-    }
-  }
-
   renderErrors() {
     return(
       <ul>

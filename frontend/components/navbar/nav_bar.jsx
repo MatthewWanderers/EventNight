@@ -22,12 +22,9 @@ class NavBar extends React.Component {
             <h1 className='logo'><a href='/'>Eventnight</a></h1>
 
             <ul className='navlinks'>
-                <li><Link to='/'>Browse Events</Link></li>
-                <li><a href="#">Organize</a></li>
-                <li><a href="#">Help</a></li>
                 <li><a href="#" onClick={this.props.logout}>Log out</a></li>
                 <li><a href="#">{this.props.currentUser.username}</a></li>
-                <li><a href="#">Create Event</a></li>
+                <li><Link to="/events/new">Create Event</Link></li>
               </ul>
         </div>
       </nav>
@@ -36,3 +33,8 @@ class NavBar extends React.Component {
 }
 
 export default NavBar;
+
+
+
+
+// <li><Link to='/'>Browse Events</Link></li>
