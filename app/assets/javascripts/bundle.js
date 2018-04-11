@@ -28857,8 +28857,9 @@ var EventForm = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (EventForm.__proto__ || Object.getPrototypeOf(EventForm)).call(this, props));
 
     if (props.event === undefined) {
-      _this.state = { title: "", description: "", location: "", start_time: "",
-        end_time: "", img_url: "", category: ""
+      _this.state = { title: "", description: "", location_id: "", start_time: "",
+        address: "", start: "", end: "", organizer_id: _this.props.currentUser.id,
+        end_time: "", img_url: "", category_id: ""
       };
     } else {
       _this.state = props.event;
@@ -28904,9 +28905,10 @@ var EventForm = function (_React$Component) {
       }
       if (nextProps.errors[0] === "Could not find event" && nextProps.location.pathname === '/events/new') {
         this.props.clearErrors();
-        this.setState({ title: "", description: "", location: "",
-          start_datetime: "", end_datetime: "", img_url: "",
-          category: "" });
+        this.setState({ title: "", description: "", location_id: "", start_time: "",
+          address: "", start: "", end: "", organizer_id: this.props.currentUser.id,
+          end_time: "", img_url: "", category_id: ""
+        });
       }
     }
   }, {
@@ -28944,14 +28946,14 @@ var EventForm = function (_React$Component) {
       var _state = this.state,
           title = _state.title,
           description = _state.description,
-          location = _state.location,
-          start_time = _state.start_time,
+          location_id = _state.location_id,
+          address = _state.address,
+          start = _state.start,
+          end = _state.end,
+          organizer_id = _state.organizer_id,
           end_time = _state.end_time,
           img_url = _state.img_url,
-          category = _state.category,
-          event_type = _state.event_type,
-          event_topic = _state.event_topic,
-          ticket = _state.ticket;
+          category_id = _state.category_id;
 
       return _react2.default.createElement(
         'div',
@@ -29006,8 +29008,33 @@ var EventForm = function (_React$Component) {
             _react2.default.createElement('input', {
               className: 'event-form-input',
               type: 'text',
-              onChange: this.update('location'),
-              value: location }),
+              onChange: this.update('address'),
+              value: address }),
+            _react2.default.createElement('br', null)
+          ),
+          _react2.default.createElement(
+            'label',
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: 'eventForm-label' },
+              'CITY'
+            ),
+            _react2.default.createElement(
+              'select',
+              { onChange: this.update('location_id'),
+                className: 'event-form-dropdown', value: location_id },
+              _react2.default.createElement(
+                'option',
+                { value: '' },
+                'Select a city'
+              ),
+              _react2.default.createElement(
+                'option',
+                { value: '1' },
+                'San Francisco'
+              )
+            ),
             _react2.default.createElement('br', null)
           ),
           _react2.default.createElement(
@@ -29024,8 +29051,8 @@ var EventForm = function (_React$Component) {
               _react2.default.createElement('input', {
                 className: 'event-form-input-date',
                 type: 'datetime-local',
-                onChange: this.update('start_time'),
-                value: start_time })
+                onChange: this.update('start'),
+                value: start })
             ),
             _react2.default.createElement(
               'label',
@@ -29088,8 +29115,8 @@ var EventForm = function (_React$Component) {
             ),
             _react2.default.createElement(
               'select',
-              { onChange: this.update('category'),
-                className: 'event-form-dropdown', value: category },
+              { onChange: this.update('category_id'),
+                className: 'event-form-dropdown', value: category_id },
               _react2.default.createElement(
                 'option',
                 { value: '' },
@@ -29102,32 +29129,32 @@ var EventForm = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'option',
-                { value: 'Food & Drink' },
+                { value: '1' },
                 'Food & Drink'
               ),
               _react2.default.createElement(
                 'option',
-                { value: 'Classes' },
+                { value: '2' },
                 'Classes'
               ),
               _react2.default.createElement(
                 'option',
-                { value: 'Arts' },
+                { value: '3' },
                 'Arts'
               ),
               _react2.default.createElement(
                 'option',
-                { value: 'Parties' },
+                { value: '4' },
                 'Parties'
               ),
               _react2.default.createElement(
                 'option',
-                { value: 'Sports & Wellness' },
+                { value: '5' },
                 'Sports & Wellness'
               ),
               _react2.default.createElement(
                 'option',
-                { value: 'Networking' },
+                { value: '6' },
                 'Networking'
               )
             ),

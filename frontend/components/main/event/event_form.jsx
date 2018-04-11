@@ -6,8 +6,9 @@ class EventForm extends React.Component {
   constructor(props) {
     super(props);
     if (props.event === undefined) {
-      this.state = { title: "", description: "", location: "", start_time: "",
-        end_time: "", img_url: "", category: "",
+      this.state = { title: "", description: "", location_id: "", start_time: "",
+        address: "", start: "", end: "", organizer_id: this.props.currentUser.id,
+        end_time: "", img_url: "", category_id: "",
       };
     }else {
       this.state = props.event;
@@ -42,9 +43,10 @@ class EventForm extends React.Component {
     if ((nextProps.errors[0] === "Could not find event")
     && (nextProps.location.pathname === '/events/new')) {
       this.props.clearErrors();
-      this.setState({ title: "", description: "", location: "",
-         start_datetime: "", end_datetime: "", img_url: "",
-         category: "" });
+      this.setState({ title: "", description: "", location_id: "", start_time: "",
+              address: "", start: "", end: "", organizer_id: this.props.currentUser.id,
+              end_time: "", img_url: "", category_id: "",
+            });
     }
   }
 
@@ -72,8 +74,8 @@ class EventForm extends React.Component {
   // <button className='form-publish' onClick={this.handleSubmit}>Publish</button>
 
   render() {
-    const { title, description, location, start_time, end_time,
-       img_url, category, event_type, event_topic, ticket } = this.state;
+    const { title, description, location_id, address, start, end,
+      organizer_id, end_time, img_url, category_id, } = this.state;
     return (
       <div className="new-update-event">
 
@@ -100,16 +102,24 @@ class EventForm extends React.Component {
             <input
               className='event-form-input'
               type='text'
-              onChange={this.update('location')}
-              value={location}/><br/>
+              onChange={this.update('address')}
+              value={address}/><br/>
+          </label>
+
+          <label><div className='eventForm-label'>CITY</div>
+            <select onChange={this.update('location_id')}
+              className='event-form-dropdown' value={location_id}>
+              <option value="">Select a city</option>
+              <option value='1'>San Francisco</option>
+            </select><br/>
           </label>
           <div className='start-end-dates'>
             <label><div className='eventForm-label'>STARTS</div>
               <input
                 className='event-form-input-date'
                 type='datetime-local'
-                onChange={this.update('start_time')}
-                value={start_time}/>
+                onChange={this.update('start')}
+                value={start}/>
             </label>
 
             <label><div className='eventForm-label'>ENDS</div>
@@ -141,16 +151,16 @@ class EventForm extends React.Component {
           </div>
 
           <label><div className='eventForm-label'>CATEGORY</div>
-            <select onChange={this.update('category')}
-              className='event-form-dropdown' value={category}>
+            <select onChange={this.update('category_id')}
+              className='event-form-dropdown' value={category_id}>
               <option value="">Select a category</option>
               <option value='Music'>Music</option>
-              <option value='Food & Drink'>Food & Drink</option>
-              <option value='Classes'>Classes</option>
-              <option value='Arts'>Arts</option>
-              <option value='Parties'>Parties</option>
-              <option value='Sports & Wellness'>Sports & Wellness</option>
-              <option value='Networking'>Networking</option>
+              <option value='1'>Food & Drink</option>
+              <option value='2'>Classes</option>
+              <option value='3'>Arts</option>
+              <option value='4'>Parties</option>
+              <option value='5'>Sports & Wellness</option>
+              <option value='6'>Networking</option>
             </select><br/>
           </label>
 

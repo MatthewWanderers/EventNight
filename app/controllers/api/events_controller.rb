@@ -20,6 +20,8 @@ class Api::EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.organizer = current_user
+    @location = @event.location
 
     if @event.save
       render :show
@@ -30,6 +32,7 @@ class Api::EventsController < ApplicationController
 
   def update
     @event = Event.find_by(id: params[:id])
+    @location = @event.location
 
     if current_user.id == @event.organizer_id
       if @event.update_attributes(event_params)
@@ -58,11 +61,12 @@ class Api::EventsController < ApplicationController
     params.require(:event).permit(
       :title,
       :description,
-      :organizer_id,
-      :img_url,
-      :address,
+      :location_id,
       :start,
-      :end
-    )
+      :end,
+      :img_url,
+      :category_id,
+      :address,
+      :organizer_id)
   end
 end
