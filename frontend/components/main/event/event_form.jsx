@@ -155,12 +155,12 @@ class EventForm extends React.Component {
               className='event-form-dropdown' value={category_id}>
               <option value="">Select a category</option>
               <option value='Music'>Music</option>
-              <option value='1'>Food & Drink</option>
-              <option value='2'>Classes</option>
-              <option value='3'>Arts</option>
-              <option value='4'>Parties</option>
-              <option value='5'>Sports & Wellness</option>
-              <option value='6'>Networking</option>
+              <option value='Food & Drink'>Food & Drink</option>
+              <option value='Classes'>Classes</option>
+              <option value='Arts'>Arts</option>
+              <option value='Parties'>Parties</option>
+              <option value='Sports & Wellness'>Sports & Wellness</option>
+              <option value='Networking'>Networking</option>
             </select><br/>
           </label>
 
