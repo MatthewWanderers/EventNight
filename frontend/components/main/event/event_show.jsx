@@ -58,8 +58,8 @@ class EventShow extends React.Component {
                 <div className='event-show-popup-header-container'>
                   <img className='event-show-image' src={img_url} alt='Event Image'/>
                   <div className='event-show-title-date'>
-                    <div className='event-show-mon'>month placeholder</div>
-                    <div className='event-show-date'>{start_time}</div>
+                    <div className='event-show-mon'>{start_time.slice(0,3)}</div>
+                    <div className='event-show-date'>{start_time.slice(4,6)}</div>
                     <div className='event-show-title'>{title}</div>
                     <div className='event-show-organizer'>by {organizer}</div>
                   </div>
@@ -73,18 +73,20 @@ class EventShow extends React.Component {
                     <div className='event-show-description'>
                       <div className='event-description-header'>DESCRIPTION</div>
                       <div className='event-description'>{description}</div>
+                      <br/>
+                      <div className='event-description-header'>ORGANIZED BY {organizer}</div>
+                      <div className='event-description'>{organizer} is a prolific event host, ensuring each event meets and exceedes guest expectations.</div>
                     </div>
                     <div className='event-location-time'>
                       <div className='event-show-logistic-header'>Date and Time</div>
                       <div className='event-show-start-time'>{start_time}</div>
-                      <div className='event-show-logistic-header'>to</div>
+                        {
+                          (end_time && end_time.length > 0) &&
+                                    <div className='event-show-logistic-header'>to</div>
+                        }
                       <div className='event-show-end-time'>{end_time}</div>
                       <div className='event-show-logistic-header'>LOCATION</div>
                       <div className='event-show-location'>{city_name}</div>
-                    </div>
-                    <div className='organizer-details'>
-                      <div className='organizer-description-header'>{organizer}</div>
-                      <div className='organizer-description'>{organizer_description}</div>
                     </div>
                   </div>
               </div>

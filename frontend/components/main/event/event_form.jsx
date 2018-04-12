@@ -77,7 +77,7 @@ class EventForm extends React.Component {
     const { title, description, location_id, address, start, end,
       organizer_id, end_time, img_url, category_id, } = this.state;
 
-      if (!this.state.owner) {
+      if (this.props.location.pathname !== '/events/new' && !this.state.owner) {
         return (
           <div className="unauthorized-user">You aren't allowed to be here
           </div>
@@ -87,7 +87,14 @@ class EventForm extends React.Component {
       <div className="new-update-event">
 
         <div className='form-header'>
-          <h3 className='form-title'>Create An Event</h3>
+          {
+            this.props.location.pathname === '/events/new' &&
+                      <h3 className='form-title'>Create An Event</h3>
+          }
+          {
+            this.props.location.pathname !== '/events/new' &&
+                      <h3 className='form-title'>Edit Your Event</h3>
+          }
         </div>
 
         <div className='divider'></div>

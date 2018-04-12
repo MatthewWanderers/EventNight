@@ -28956,7 +28956,7 @@ var EventForm = function (_React$Component) {
           category_id = _state.category_id;
 
 
-      if (!this.state.owner) {
+      if (this.props.location.pathname !== '/events/new' && !this.state.owner) {
         return _react2.default.createElement(
           'div',
           { className: 'unauthorized-user' },
@@ -28969,10 +28969,15 @@ var EventForm = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'form-header' },
-          _react2.default.createElement(
+          this.props.location.pathname === '/events/new' && _react2.default.createElement(
             'h3',
             { className: 'form-title' },
             'Create An Event'
+          ),
+          this.props.location.pathname !== '/events/new' && _react2.default.createElement(
+            'h3',
+            { className: 'form-title' },
+            'Edit Your Event'
           )
         ),
         _react2.default.createElement('div', { className: 'divider' }),
@@ -31540,12 +31545,12 @@ var EventShow = function (_React$Component) {
                   _react2.default.createElement(
                     'div',
                     { className: 'event-show-mon' },
-                    'month placeholder'
+                    start_time.slice(0, 3)
                   ),
                   _react2.default.createElement(
                     'div',
                     { className: 'event-show-date' },
-                    start_time
+                    start_time.slice(4, 6)
                   ),
                   _react2.default.createElement(
                     'div',
@@ -31576,6 +31581,19 @@ var EventShow = function (_React$Component) {
                     'div',
                     { className: 'event-description' },
                     description
+                  ),
+                  _react2.default.createElement('br', null),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'event-description-header' },
+                    'ORGANIZED BY ',
+                    organizer
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'event-description' },
+                    organizer,
+                    ' is a prolific event host, ensuring each event meets and exceedes guest expectations.'
                   )
                 ),
                 _react2.default.createElement(
@@ -31591,7 +31609,7 @@ var EventShow = function (_React$Component) {
                     { className: 'event-show-start-time' },
                     start_time
                   ),
-                  _react2.default.createElement(
+                  end_time && end_time.length > 0 && _react2.default.createElement(
                     'div',
                     { className: 'event-show-logistic-header' },
                     'to'
@@ -31610,20 +31628,6 @@ var EventShow = function (_React$Component) {
                     'div',
                     { className: 'event-show-location' },
                     city_name
-                  )
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'organizer-details' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'organizer-description-header' },
-                    organizer
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'organizer-description' },
-                    organizer_description
                   )
                 )
               )
