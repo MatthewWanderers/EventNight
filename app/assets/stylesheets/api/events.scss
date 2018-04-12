@@ -180,7 +180,7 @@ color: #363A43;
 }
 
 .large-splash-image {
-  // object-fit: cover;
+  object-fit: cover;
 }
 
 .search-bar-over-background-image {
@@ -208,6 +208,7 @@ color: #363A43;
   overflow: hidden;
   box-sizing: border-box;
   margin-bottom: 15px;
+  min-width: 350px;
 }
 
 .event-index-item-image-container {
@@ -217,7 +218,7 @@ color: #363A43;
 }
 
 .event-index-item-image {
-  // object-fit: cover;
+
   height: 250px;
 
 }
@@ -314,7 +315,7 @@ color: #363A43;
   display: block;
   width: 70%;
   height: 340px;
-  // object-fit:cover;
+  object-fit:cover;
 }
 
 .event-show-title-date {
@@ -595,4 +596,21 @@ color: #363A43;
   margin: 10px;
   border-radius: 5px;
 
+}
+
+.unauthorized-user {
+  margin:auto;
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 200px;
+  background-color: white;
+  left: 10%;
+  top: -120px;
+  font-size: 40px;
+  font-weight: 100;
+  color: #F6682F;
+  border-radius: 5px
 }

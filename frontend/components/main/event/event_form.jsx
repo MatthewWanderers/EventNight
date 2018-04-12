@@ -71,11 +71,18 @@ class EventForm extends React.Component {
   }
 
 
-  // <button className='form-publish' onClick={this.handleSubmit}>Publish</button>
+// make check to see whether to render Create of Edit based on event path.
 
   render() {
     const { title, description, location_id, address, start, end,
       organizer_id, end_time, img_url, category_id, } = this.state;
+
+      if (!this.state.owner) {
+        return (
+          <div className="unauthorized-user">You aren't allowed to be here
+          </div>
+        )
+      }
     return (
       <div className="new-update-event">
 

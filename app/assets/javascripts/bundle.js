@@ -27858,7 +27858,7 @@ var App = function App(_ref) {
     )
   );
 };
-// <ProtectedRoute exact path='/' component={EventIndexContainer} />
+
 exports.default = App;
 
 /***/ }),
@@ -28938,7 +28938,7 @@ var EventForm = function (_React$Component) {
       }
     }
 
-    // <button className='form-publish' onClick={this.handleSubmit}>Publish</button>
+    // make check to see whether to render Create of Edit based on event path.
 
   }, {
     key: 'render',
@@ -28955,6 +28955,14 @@ var EventForm = function (_React$Component) {
           img_url = _state.img_url,
           category_id = _state.category_id;
 
+
+      if (!this.state.owner) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'unauthorized-user' },
+          'You aren\'t allowed to be here'
+        );
+      }
       return _react2.default.createElement(
         'div',
         { className: 'new-update-event' },
@@ -29129,32 +29137,32 @@ var EventForm = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'option',
-                { value: '1' },
+                { value: 'Food & Drink' },
                 'Food & Drink'
               ),
               _react2.default.createElement(
                 'option',
-                { value: '2' },
+                { value: 'Classes' },
                 'Classes'
               ),
               _react2.default.createElement(
                 'option',
-                { value: '3' },
+                { value: 'Arts' },
                 'Arts'
               ),
               _react2.default.createElement(
                 'option',
-                { value: '4' },
+                { value: 'Parties' },
                 'Parties'
               ),
               _react2.default.createElement(
                 'option',
-                { value: '5' },
+                { value: 'Sports & Wellness' },
                 'Sports & Wellness'
               ),
               _react2.default.createElement(
                 'option',
-                { value: '6' },
+                { value: 'Networking' },
                 'Networking'
               )
             ),

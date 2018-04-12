@@ -29,6 +29,8 @@ const mapStateToProps = state => {
   return { loggedIn: Boolean(state.session.currentUser) };
 }
 
+
+
 // connect Auth to the redux state
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 
