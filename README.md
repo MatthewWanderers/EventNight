@@ -25,7 +25,7 @@ Anyone adventurous enough to host their own event can easily set one up using th
 Creating an Event:
 ![Creating an Event](https://github.com/MatthewWanderers/EventNight/blob/master/app/assets/images/creating_event.gif)
 Editing an Event:
-![Editing an Event](https://github.com/MatthewWanderers/EventNight/blob/master/app/assets/images/editing_event.gif
+![Editing an Event](https://github.com/MatthewWanderers/EventNight/blob/master/app/assets/images/editing_event.gif)
 * ### Event Show Page
 The event show page allows quick access to important information about events and helps event organizers stand out.
 ## Future Direction
