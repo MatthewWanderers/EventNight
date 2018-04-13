@@ -16,12 +16,10 @@ class EventIndex extends React.Component {
   }
 
   componentDidMount(){
-    // debugger
     this.props.fetchEvents(this.props.match.params);
   }
 
 componentWillReceiveProps(nextProps) {
-  // debugger
   if (
     this.props.match.params.city_name !==
     nextProps.match.params.city_name
@@ -38,7 +36,6 @@ componentWillReceiveProps(nextProps) {
     const { events } = this.props;
     const { city_name, category_id,  } = this.state;
 
-    // debugger
     return(
       <div className='event-index-page'>
         <div className='large-splash-image-container' id='cf4a'>

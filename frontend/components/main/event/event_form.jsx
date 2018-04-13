@@ -76,12 +76,10 @@ class EventForm extends React.Component {
   }
 
 
-// make check to see whether to render Create of Edit based on event path.
-
   render() {
     const { title, description, location, address, start, end,
       organizer_id, end_time, img_url, category_id, start_time } = this.state;
-// debugger
+
       if (this.props.location.pathname !== '/events/new' && !this.state.owner) {
         return (
           <div className="unauthorized-user">You aren't allowed to be here
