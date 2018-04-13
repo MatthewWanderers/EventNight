@@ -128,8 +128,13 @@ class EventForm extends React.Component {
           <label><div className='eventForm-label'>CITY</div>
             <select onChange={this.update('location')}
               className='event-form-dropdown' value={location}>
-              <option value="">Select a city</option>
+              <option selected disabled="disabled">Select a city</option>
               <option value='San Francisco'>San Francisco</option>
+              <option value='Oakland'>Oakland</option>
+              <option value='Berkeley'>Berkeley</option>
+              <option value='San Jose'>San Jose</option>
+              <option value='Palo Alto'>Palo Alto</option>
+              <option value='Other'>Other</option>
             </select><br/>
           </label>
           <div className='start-end-dates'>
@@ -172,7 +177,7 @@ class EventForm extends React.Component {
           <label><div className='eventForm-label'>CATEGORY</div>
             <select onChange={this.update('category_id')}
               className='event-form-dropdown' value={category_id}>
-              <option value="">Select a category</option>
+              <option selected disabled="disabled">Select a category</option>
               <option value='Music'>Music</option>
               <option value='Food & Drink'>Food & Drink</option>
               <option value='Classes'>Classes</option>
