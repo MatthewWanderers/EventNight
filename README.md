@@ -43,7 +43,7 @@ Creating an Event:
 Editing an Event:
 ![Editing an Event](https://github.com/MatthewWanderers/EventNight/blob/master/app/assets/images/editing_event.gif)
 
-   The same form handle creation and editing events through inline booleans:
+   The same form handles creation and editing events through inline booleans:
 ```html
    <div className="event-form-buttons">
      <input
