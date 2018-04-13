@@ -11,6 +11,7 @@ gem 'rails', '~> 5.1.5'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
+gem 'faker'
 gem 'figaro'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -46,7 +47,6 @@ group :development, :test do
   gem 'guard', require: false
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
-  gem 'faker'
 end
 
 group :development do
