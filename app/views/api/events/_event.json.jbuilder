@@ -5,9 +5,9 @@ json.extract! event, :id,
               :img_url,
               :address,
               :category_id,
+              :location_id,
               :start,
-              :end,
-              :location_id
+              :end
 json.set! :location, event.location.city_name
 json.set! :start_time, event.start.localtime.strftime("%^b %-d, %-l:%M%p")
 if event.end

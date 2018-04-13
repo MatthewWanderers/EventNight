@@ -1,17 +1,22 @@
 import React from 'react';
 import UploadButton from './upload_button';
 import merge from 'lodash/merge';
+import { Link } from 'react-router-dom';
 
 class EventForm extends React.Component {
   constructor(props) {
     super(props);
     if (props.event === undefined) {
-      this.state = { title: "", description: "", location_id: "", start_time: "",
+      this.state = { title: "", description: "", location: "", start_time: "",
         address: "", start: "", end: "", organizer_id: this.props.currentUser.id,
         end_time: "", img_url: "", category_id: "",
       };
     }else {
       this.state = props.event;
+      this.state.start = props.event.start.slice(0,16);
+      if (props.event.end) {
+        this.state.end = props.event.end.slice(0,16);
+      }
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,7 +48,7 @@ class EventForm extends React.Component {
     if ((nextProps.errors[0] === "Could not find event")
     && (nextProps.location.pathname === '/events/new')) {
       this.props.clearErrors();
-      this.setState({ title: "", description: "", location_id: "", start_time: "",
+      this.setState({ title: "", description: "", location: "", start_time: "",
               address: "", start: "", end: "", organizer_id: this.props.currentUser.id,
               end_time: "", img_url: "", category_id: "",
             });
@@ -74,8 +79,8 @@ class EventForm extends React.Component {
 // make check to see whether to render Create of Edit based on event path.
 
   render() {
-    const { title, description, location_id, address, start, end,
-      organizer_id, end_time, img_url, category_id, } = this.state;
+    const { title, description, location, address, start, end,
+      organizer_id, end_time, img_url, category_id, start_time } = this.state;
 
       if (this.props.location.pathname !== '/events/new' && !this.state.owner) {
         return (
@@ -121,10 +126,10 @@ class EventForm extends React.Component {
           </label>
 
           <label><div className='eventForm-label'>CITY</div>
-            <select onChange={this.update('location_id')}
-              className='event-form-dropdown' value={location_id}>
+            <select onChange={this.update('location')}
+              className='event-form-dropdown' value={location}>
               <option value="">Select a city</option>
-              <option value='1'>San Francisco</option>
+              <option value='San Francisco'>San Francisco</option>
             </select><br/>
           </label>
           <div className='start-end-dates'>
@@ -140,8 +145,8 @@ class EventForm extends React.Component {
               <input
                 className='event-form-input-date'
                 type='datetime-local'
-                onChange={this.update('end_time')}
-                value={end_time}/>
+                onChange={this.update('end')}
+                value={end}/>
             </label>
           </div>
 
@@ -177,11 +182,20 @@ class EventForm extends React.Component {
               <option value='Networking'>Networking</option>
             </select><br/>
           </label>
-
-          <input
-            className='event-submit'
-            type='submit'
-            value='MAKE YOUR EVENT LIVE' />
+          <div className="event-form-buttons">
+            <input
+              className='event-submit'
+              type='submit'
+              value='MAKE YOUR EVENT LIVE' />
+            {
+              this.props.location.pathname !== '/events/new' &&
+              <button
+                className='event-delete'
+                type="button"
+                onClick={this.props.deleteEvent.bind(this, this.props.event)}>
+                <Link to="/">DELETE EVENT</Link></button>
+            }
+          </div>
         </form>
       </div>
     );

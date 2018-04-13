@@ -46,7 +46,7 @@ class Api::EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find_by(event: params[:id])
+    @event = Event.find(params[:id])
     if @event && current_user.id == @event.organizer_id
       @event.delete
       render :show
@@ -58,6 +58,8 @@ class Api::EventsController < ApplicationController
   private
 
   def event_params
+    loc = Location.find_by(city_name: params[:event][:location])
+    params[:event][:location_id] = loc.id
     params.require(:event).permit(
       :title,
       :description,
@@ -67,6 +69,7 @@ class Api::EventsController < ApplicationController
       :img_url,
       :category_id,
       :address,
-      :organizer_id)
+      :organizer_id
+    )
   end
 end

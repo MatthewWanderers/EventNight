@@ -27983,8 +27983,8 @@ var NavBar = function (_React$Component) {
             'h1',
             { className: 'logo' },
             _react2.default.createElement(
-              'a',
-              { href: '/' },
+              _reactRouterDom.Link,
+              { to: '/' },
               'Eventnight'
             )
           ),
@@ -27993,20 +27993,16 @@ var NavBar = function (_React$Component) {
             { className: 'navlinks' },
             _react2.default.createElement(
               'li',
-              null,
-              _react2.default.createElement(
-                'a',
-                { href: '#', onClick: this.props.logout },
-                'Log out'
-              )
+              { className: 'display-username' },
+              this.props.currentUser.username
             ),
             _react2.default.createElement(
               'li',
               null,
               _react2.default.createElement(
                 'a',
-                { href: '#' },
-                this.props.currentUser.username
+                { href: '#', onClick: this.props.logout },
+                'Log out'
               )
             ),
             _react2.default.createElement(
@@ -28558,10 +28554,10 @@ var updateEvent = exports.updateEvent = function updateEvent(event) {
   });
 };
 
-var deleteEvent = exports.deleteEvent = function deleteEvent(id) {
+var deleteEvent = exports.deleteEvent = function deleteEvent(event) {
   return $.ajax({
     method: 'DELETE',
-    url: '/api/events/' + id
+    url: '/api/events/' + event.id
   });
 };
 
@@ -28777,6 +28773,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     event: event,
     eventId: eventId,
     errors: errors,
+    deleteEvent: _events_actions.deleteEvent,
     currentUser: state.session.currentUser
   };
 };
@@ -28802,11 +28799,11 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
     clearErrors: function clearErrors() {
       return dispatch((0, _events_actions.clearErrors)());
     },
-    deleteEvent: function deleteEvent(id) {
-      return dispatch((0, _events_actions.deleteEvent)(id));
+    deleteEvent: function deleteEvent(eventId) {
+      return dispatch((0, _events_actions.deleteEvent)(eventId));
     },
-    fetchEvent: function fetchEvent(id) {
-      return dispatch((0, _events_actions.fetchEvent)(id));
+    fetchEvent: function fetchEvent(eventId) {
+      return dispatch((0, _events_actions.fetchEvent)(eventId));
     }
   };
 };
@@ -28838,6 +28835,8 @@ var _merge = __webpack_require__(17);
 
 var _merge2 = _interopRequireDefault(_merge);
 
+var _reactRouterDom = __webpack_require__(5);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -28857,12 +28856,16 @@ var EventForm = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (EventForm.__proto__ || Object.getPrototypeOf(EventForm)).call(this, props));
 
     if (props.event === undefined) {
-      _this.state = { title: "", description: "", location_id: "", start_time: "",
+      _this.state = { title: "", description: "", location: "", start_time: "",
         address: "", start: "", end: "", organizer_id: _this.props.currentUser.id,
         end_time: "", img_url: "", category_id: ""
       };
     } else {
       _this.state = props.event;
+      _this.state.start = props.event.start.slice(0, 16);
+      if (props.event.end) {
+        _this.state.end = props.event.end.slice(0, 16);
+      }
     }
 
     _this.handleSubmit = _this.handleSubmit.bind(_this);
@@ -28905,7 +28908,7 @@ var EventForm = function (_React$Component) {
       }
       if (nextProps.errors[0] === "Could not find event" && nextProps.location.pathname === '/events/new') {
         this.props.clearErrors();
-        this.setState({ title: "", description: "", location_id: "", start_time: "",
+        this.setState({ title: "", description: "", location: "", start_time: "",
           address: "", start: "", end: "", organizer_id: this.props.currentUser.id,
           end_time: "", img_url: "", category_id: ""
         });
@@ -28946,14 +28949,15 @@ var EventForm = function (_React$Component) {
       var _state = this.state,
           title = _state.title,
           description = _state.description,
-          location_id = _state.location_id,
+          location = _state.location,
           address = _state.address,
           start = _state.start,
           end = _state.end,
           organizer_id = _state.organizer_id,
           end_time = _state.end_time,
           img_url = _state.img_url,
-          category_id = _state.category_id;
+          category_id = _state.category_id,
+          start_time = _state.start_time;
 
 
       if (this.props.location.pathname !== '/events/new' && !this.state.owner) {
@@ -29035,8 +29039,8 @@ var EventForm = function (_React$Component) {
             ),
             _react2.default.createElement(
               'select',
-              { onChange: this.update('location_id'),
-                className: 'event-form-dropdown', value: location_id },
+              { onChange: this.update('location'),
+                className: 'event-form-dropdown', value: location },
               _react2.default.createElement(
                 'option',
                 { value: '' },
@@ -29044,7 +29048,7 @@ var EventForm = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'option',
-                { value: '1' },
+                { value: 'San Francisco' },
                 'San Francisco'
               )
             ),
@@ -29078,8 +29082,8 @@ var EventForm = function (_React$Component) {
               _react2.default.createElement('input', {
                 className: 'event-form-input-date',
                 type: 'datetime-local',
-                onChange: this.update('end_time'),
-                value: end_time })
+                onChange: this.update('end'),
+                value: end })
             )
           ),
           _react2.default.createElement(
@@ -29173,10 +29177,26 @@ var EventForm = function (_React$Component) {
             ),
             _react2.default.createElement('br', null)
           ),
-          _react2.default.createElement('input', {
-            className: 'event-submit',
-            type: 'submit',
-            value: 'MAKE YOUR EVENT LIVE' })
+          _react2.default.createElement(
+            'div',
+            { className: 'event-form-buttons' },
+            _react2.default.createElement('input', {
+              className: 'event-submit',
+              type: 'submit',
+              value: 'MAKE YOUR EVENT LIVE' }),
+            this.props.location.pathname !== '/events/new' && _react2.default.createElement(
+              'button',
+              {
+                className: 'event-delete',
+                type: 'button',
+                onClick: this.props.deleteEvent.bind(this, this.props.event) },
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/' },
+                'DELETE EVENT'
+              )
+            )
+          )
         )
       );
     }
@@ -31443,6 +31463,8 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(5);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31562,6 +31584,14 @@ var EventShow = function (_React$Component) {
                     { className: 'event-show-organizer' },
                     'by ',
                     organizer
+                  ),
+                  _react2.default.createElement('br', null),
+                  _react2.default.createElement('br', null),
+                  _react2.default.createElement('br', null),
+                  this.props.event.owner && _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { className: 'edit-button', to: '/events/' + eventId + '/edit' },
+                    'Edit Your Event'
                   )
                 )
               ),

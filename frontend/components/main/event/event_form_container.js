@@ -22,6 +22,7 @@ const mapStateToProps = (state, ownProps) => {
     event,
     eventId,
     errors,
+    deleteEvent,
     currentUser: state.session.currentUser
   };
 };
@@ -41,8 +42,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     action,
     formType,
     clearErrors: () => dispatch(clearErrors()),
-    deleteEvent: (id) => dispatch(deleteEvent(id)),
-    fetchEvent: (id) => dispatch(fetchEvent(id))
+    deleteEvent: (eventId) => dispatch(deleteEvent(eventId)),
+    fetchEvent: (eventId) => dispatch(fetchEvent(eventId))
   };
 };
 

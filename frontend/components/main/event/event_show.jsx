@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import Modal from 'react-modal';
 // import RegistrationModal from '../registrations/registration_modal';
 // import Bookmark from '../bookmarks/bookmark';
@@ -62,6 +63,10 @@ class EventShow extends React.Component {
                     <div className='event-show-date'>{start_time.slice(4,6)}</div>
                     <div className='event-show-title'>{title}</div>
                     <div className='event-show-organizer'>by {organizer}</div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    {this.props.event.owner && <Link className="edit-button"to={`/events/${eventId}/edit`}>Edit Your Event</Link>}
                   </div>
                 </div>
 
