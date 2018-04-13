@@ -23,8 +23,9 @@ class NavBar extends React.Component {
 
             <ul className='navlinks'>
               <li className="display-username">{this.props.currentUser.username}</li>
-                <li><a href="#" onClick={this.props.logout}>Log out</a></li>
-                <li><Link to="/events/new">Create Event</Link></li>
+              <li><Link to='/location/1'>Browse Events</Link></li>
+              <li><a href="#" onClick={this.props.logout}>Log out</a></li>
+              <li><Link to="/events/new"><div className="create-event">Create Event</div></Link></li>
               </ul>
         </div>
       </nav>
@@ -33,8 +34,3 @@ class NavBar extends React.Component {
 }
 
 export default NavBar;
-
-
-
-
-// <li><Link to='/'>Browse Events</Link></li>

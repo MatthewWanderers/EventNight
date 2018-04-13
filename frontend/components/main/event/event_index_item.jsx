@@ -27,10 +27,6 @@ class EventIndexItem extends React.Component {
             </div>
           </div>
           </Link>
-          <div className='event-index-item-bookmark-bar'>
-            <div className='index-bookmark-icon'>
-            </div>
-          </div>
       </div>
     );
   }

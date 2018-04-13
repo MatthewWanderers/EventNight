@@ -194,14 +194,14 @@ color: #363A43;
 
 .large-splash-image-container {
   display: flex;
-  height: 300px;
+  height: 390px;
   position: relative;
   justify-content: center;
   overflow: hidden;
 }
 
 .large-splash-image {
-  object-fit: cover;
+  // object-fit: cover;
 }
 
 .search-bar-over-background-image {
@@ -209,23 +209,21 @@ color: #363A43;
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 80%;
-  height: 200px;
+  width: 70%;
+  height: 180px;
   background-color: white;
-  left: 10%;
+  // left: 10%;
   top: -120px;
   font-size: 40px;
-  font-weight: 100;
   color: #F6682F;
-  border-radius: 5px
+  border-radius: 5px;
+  align-self: center;
 }
 
 .event-index-item {
   display: inline-block;
   width: 33.33%;
-  // height: 340px;
   padding: 15px;
-  /*white-space: nowrap;*/
   overflow: hidden;
   box-sizing: border-box;
   margin-bottom: 15px;
@@ -268,24 +266,17 @@ color: #363A43;
 
 }
 
-.event-index-item-bookmark-bar {
-  border: 1px solid lightgray;
-  height: 50px;
-  border-top: 0px;
-}
-
 .divider-text {
-  margin-top: -50px;
+  margin-top: -80px;
   display: flex;
   position: relative;
   justify-content: center;
-  font-size: 36px;
-  font-weight: 100;
+  font-size: 26px;
   color: gray
 }
 
 .event-index-details-box {
-  height: 120px;
+  height: 90px;
   border: 1px solid lightgray;
   letter-spacing: 1px;
   padding: 10px;
@@ -645,4 +636,46 @@ color: #363A43;
 
 .event-form-buttons {
   display: flex;
+}
+
+// source: http://css3.bradshawenterprises.com/cfimg/
+@keyframes cf4FadeInOut {
+  0% {
+    opacity:1;
+  }
+  17% {
+    opacity:1;
+  }
+  25% {
+    opacity:0;
+  }
+  92% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+#cf4a img:nth-of-type(1) {
+  animation-delay: 30s;
+}
+#cf4a img:nth-of-type(2) {
+  animation-delay: 20s;
+}
+#cf4a img:nth-of-type(3) {
+  animation-delay: 10s;
+}
+#cf4a img:nth-of-type(4) {
+  animation-delay: 0;
+}
+
+
+#cf4a img{
+  animation-name: cf4FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 40s;
+  position: absolute;
+  left: 0;
 }

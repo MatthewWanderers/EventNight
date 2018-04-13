@@ -28000,6 +28000,15 @@ var NavBar = function (_React$Component) {
               'li',
               null,
               _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/location/1' },
+                'Browse Events'
+              )
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              _react2.default.createElement(
                 'a',
                 { href: '#', onClick: this.props.logout },
                 'Log out'
@@ -28011,7 +28020,11 @@ var NavBar = function (_React$Component) {
               _react2.default.createElement(
                 _reactRouterDom.Link,
                 { to: '/events/new' },
-                'Create Event'
+                _react2.default.createElement(
+                  'div',
+                  { className: 'create-event' },
+                  'Create Event'
+                )
               )
             )
           )
@@ -28024,8 +28037,6 @@ var NavBar = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = NavBar;
-
-// <li><Link to='/'>Browse Events</Link></li>
 
 /***/ }),
 /* 148 */
@@ -28620,7 +28631,18 @@ var EventIndex = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'event-index-page' },
-        _react2.default.createElement('div', { className: 'large-splash-image-container', id: 'cf4a' }),
+        _react2.default.createElement(
+          'div',
+          { className: 'large-splash-image-container', id: 'cf4a' },
+          _react2.default.createElement('img', { className: 'large-splash-image',
+            src: 'https://res.cloudinary.com/do2qcwqsc/image/upload/v1523596737/PampaBBQ-Napa-043.jpg' }),
+          _react2.default.createElement('img', { className: 'large-splash-image',
+            src: 'https://res.cloudinary.com/do2qcwqsc/image/upload/v1523568659/headlineImage.adapt.1460.high.flag_florida_262015.1423268174485.jpg' }),
+          _react2.default.createElement('img', { className: 'large-splash-image',
+            src: 'https://res.cloudinary.com/do2qcwqsc/image/upload/v1523567468/San_francisco_in_fog_with_rays.jpg' }),
+          _react2.default.createElement('img', { className: 'large-splash-image',
+            src: 'https://res.cloudinary.com/do2qcwqsc/image/upload/v1523596476/best-workplaces-in-the-bay-area-2017-salesforce.jpg' })
+        ),
         _react2.default.createElement(
           'div',
           { className: 'search-bar-over-background-image' },
@@ -28629,7 +28651,7 @@ var EventIndex = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'divider-text' },
-          'Events for you'
+          'Events for you in the Bay Area'
         ),
         _react2.default.createElement(
           'section',
@@ -28722,11 +28744,6 @@ var EventIndexItem = function (_React$Component) {
               event.location
             )
           )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'event-index-item-bookmark-bar' },
-          _react2.default.createElement('div', { className: 'index-bookmark-icon' })
         )
       );
     }
