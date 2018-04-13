@@ -5,7 +5,7 @@ Logged in users can browse events by city and category type and event creators c
 
 ## Demo
 Check out the
-[Live Eventnight Demo](eventnight.herokuapp.com)!
+[Live Eventnight Demo](https://eventnight.herokuapp.com/)!
 For more info on what's going on behind the scenes, head over to the [Eventnight Wiki](https://github.com/MatthewWanderers/EventNight/wiki).
 
 ## Site
