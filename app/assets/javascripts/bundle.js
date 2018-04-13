@@ -28077,7 +28077,7 @@ var NavBar = function (_React$Component) {
             _react2.default.createElement(
               _reactRouterDom.Link,
               { to: '/' },
-              'Eventnight'
+              'Eventnite'
             )
           ),
           _react2.default.createElement(
@@ -32187,10 +32187,15 @@ var EventShow = function (_React$Component) {
                     { className: 'event-show-mon' },
                     start_time.slice(0, 3)
                   ),
-                  _react2.default.createElement(
+                  start_time.length === 14 && _react2.default.createElement(
                     'div',
                     { className: 'event-show-date' },
                     start_time.slice(4, 6)
+                  ),
+                  start_time.length === 13 && _react2.default.createElement(
+                    'div',
+                    { className: 'event-show-date' },
+                    start_time.slice(4, 5)
                   ),
                   _react2.default.createElement(
                     'div',

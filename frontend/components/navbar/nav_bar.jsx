@@ -19,7 +19,7 @@ class NavBar extends React.Component {
     return (
       <nav>
         <div className="navbar">
-            <h1 className='logo'><Link to='/'>Eventnight</Link></h1>
+            <h1 className='logo'><Link to='/'>Eventnite</Link></h1>
 
             <ul className='navlinks'>
               <li><Link to='/location/'>Browse Events</Link></li>

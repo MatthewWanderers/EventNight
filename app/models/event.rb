@@ -17,7 +17,7 @@
 #
 
 class Event < ApplicationRecord
-  validates :title, :description, :organizer_id, :start, :location_id, presence: true
+  validates :title, :description, :organizer_id, :start, :location_id, :img_url, presence: true
 
   belongs_to :organizer, foreign_key: :organizer_id, class_name: 'User'
   belongs_to :location, foreign_key: :location_id, class_name: 'Location'

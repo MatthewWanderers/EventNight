@@ -60,7 +60,9 @@ class EventShow extends React.Component {
                   <img className='event-show-image' src={img_url} alt='Event Image'/>
                   <div className='event-show-title-date'>
                     <div className='event-show-mon'>{start_time.slice(0,3)}</div>
-                    <div className='event-show-date'>{start_time.slice(4,6)}</div>
+                    {start_time.length === 14 && <div className='event-show-date'>{start_time.slice(4,6)}</div>}
+                    {start_time.length === 13 && <div className='event-show-date'>{start_time.slice(4,5)}</div>}
+
                     <div className='event-show-title'>{title}</div>
                     <div className='event-show-organizer'>by {organizer}</div>
                     <br/>
