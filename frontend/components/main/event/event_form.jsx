@@ -81,7 +81,7 @@ class EventForm extends React.Component {
   render() {
     const { title, description, location, address, start, end,
       organizer_id, end_time, img_url, category_id, start_time } = this.state;
-
+// debugger
       if (this.props.location.pathname !== '/events/new' && !this.state.owner) {
         return (
           <div className="unauthorized-user">You aren't allowed to be here
@@ -94,11 +94,11 @@ class EventForm extends React.Component {
         <div className='form-header'>
           {
             this.props.location.pathname === '/events/new' &&
-                      <h3 className='form-title'>Create An Event</h3>
+            <h3 className='form-title'>Create An Event</h3>
           }
           {
             this.props.location.pathname !== '/events/new' &&
-                      <h3 className='form-title'>Edit Your Event</h3>
+            <h3 className='form-title'>Edit Your Event</h3>
           }
         </div>
 
@@ -128,7 +128,7 @@ class EventForm extends React.Component {
           <label><div className='eventForm-label'>CITY</div>
             <select onChange={this.update('location')}
               className='event-form-dropdown' value={location}>
-              <option selected disabled="disabled">Select a city</option>
+              <option disabled="disabled">Select a city</option>
               <option value='San Francisco'>San Francisco</option>
               <option value='Oakland'>Oakland</option>
               <option value='Berkeley'>Berkeley</option>
@@ -177,7 +177,7 @@ class EventForm extends React.Component {
           <label><div className='eventForm-label'>CATEGORY</div>
             <select onChange={this.update('category_id')}
               className='event-form-dropdown' value={category_id}>
-              <option selected disabled="disabled">Select a category</option>
+              <option disabled="disabled">Select a category</option>
               <option value='Music'>Music</option>
               <option value='Food & Drink'>Food & Drink</option>
               <option value='Classes'>Classes</option>

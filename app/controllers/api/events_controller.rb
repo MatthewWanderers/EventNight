@@ -1,15 +1,16 @@
 class Api::EventsController < ApplicationController
   def index
-    events = Event.all
-    #
-    # if params[:location_id]
-    #   events = events.where(location_id: params[:location_id])
-    # end
-    #
-    # if params[:category_id]
-    #   events = events.where(category_id: params[:category_id])
-    # end
-    #
+    events = Event.all.order(:start)
+    if params[:city_name]
+      params[:city] = params[:city_name]
+      location = Location.find_by(city_name: params[:city])
+      events = Event.where(location_id: location.id).order(:start)
+    end
+
+    if params[:category_id]
+      events = events.where(category_id: params[:category_id])
+    end
+
     @events = events
   end
 

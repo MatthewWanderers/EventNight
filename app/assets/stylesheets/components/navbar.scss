@@ -10,6 +10,7 @@
   font-size: 22px;
   font-weight: bold;
   padding: 20px;
+  padding-bottom: 14px;
   border-right: 1px solid $borders;
 }
 
@@ -22,6 +23,7 @@
   font-size: 14px;
   color: $fontColor;
   padding: 20px;
+  padding-bottom: 14px;
   border-left: 1px solid $borders;
   text-transform: uppercase;
   letter-spacing: 0.1px;
@@ -36,4 +38,8 @@
 
 .create-event:hover {
   color: #415972
+}
+
+.display-username {
+  font-weight: bold;
 }

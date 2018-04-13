@@ -49,6 +49,15 @@
   margin-right: 20px;
 }
 
+.browse-submit {
+  background-color: #00AB44;
+  padding: 6px;
+  color: white;
+  border-radius: 5px;
+  font-weight: 100;
+  font-size: 14px;
+}
+
 .event-delete {
   background-color: #f2303d;
   padding: 15px;
@@ -170,6 +179,19 @@ color: #363A43;
   border: 1px solid #E8E8E8;
 }
 
+.browse-form-dropdown {
+  border: 1px solid black;
+  margin-bottom: 10px;
+  width: 80%;
+  min-width: 200px;
+  height: 45px;
+  padding: 10px;
+  background-color: white;
+  font-size: 20px;
+  font-weight: 200;
+  border: 1px solid #E8E8E8;
+}
+
 .img-url-confirm {
   margin: 15px 0;
 }
@@ -194,7 +216,7 @@ color: #363A43;
 
 .large-splash-image-container {
   display: flex;
-  height: 390px;
+  height: 30vw;
   position: relative;
   justify-content: center;
   overflow: hidden;
@@ -227,7 +249,7 @@ color: #363A43;
   overflow: hidden;
   box-sizing: border-box;
   margin-bottom: 15px;
-  min-width: 250px;
+  min-width: 270px;
 }
 
 .event-index-item-image-container {
@@ -273,6 +295,27 @@ color: #363A43;
   justify-content: center;
   font-size: 26px;
   color: gray
+}
+
+.divider-text-browse {
+  margin: auto;
+  margin-top: -100px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  font-size: 26px;
+  color: gray
+}
+
+.browse-by-stuff {
+  width: 50%;
+  margin:auto;
+  margin-top: 50px;
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  font-size: 14px;
+  color: #2565a8;
 }
 
 .event-index-details-box {
@@ -369,18 +412,6 @@ color: #363A43;
   box-sizing: border-box;
 }
 
-.show-page-tickets-button {
-  background-color: #00AB44;
-  padding: 15px;
-  color: white;
-  width: 27.5%;
-  border-radius: 5px;
-  font-weight: 100;
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-}
-
 .event-details {
   display: flex;
   box-sizing: border-box;
@@ -466,69 +497,6 @@ color: #363A43;
   color: #666A73;
   margin-bottom: 20px;
 
-}
-
-.event-form-ticket-creation {
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  width: 100%;
-  height: 100px;
-  color: #66A73;
-  display: flex;
-  justify-content: center;
-
-}
-
-.ticket-label {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.event-form-ticket-header {
-  font-size: 15px;
-  line-height: 22px;
-  font-weight: 400;
-  letter-spacing: .5px
-}
-
-.event-form-ticket-name {
-  width: 70%;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  background-color: white;
-  padding: 10px;
-  margin: 10px;
-}
-
-.event-form-ticket-quantity {
-  width: 35%;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  background-color: white;
-  padding: 10px;
-  margin: 10px;
-
-}
-
-.event-form-ticket-price {
-  width: 35%;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  background-color: white;
-  padding: 10px;
-  margin: 10px;
-
-}
-
-.ticket-delete-button {
-  background-color: #F6682F;
-  padding: 5px;
-  color: white;
-  font-size: 20px;
-  margin: 25px;
 }
 
 .event-index-filters {
@@ -678,4 +646,8 @@ color: #363A43;
   animation-duration: 40s;
   position: absolute;
   left: 0;
+}
+
+body {
+  min-width:420px;
 }

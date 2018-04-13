@@ -22,8 +22,8 @@ class NavBar extends React.Component {
             <h1 className='logo'><Link to='/'>Eventnight</Link></h1>
 
             <ul className='navlinks'>
+              <li><Link to='/location/'>Browse Events</Link></li>
               <li className="display-username">{this.props.currentUser.username}</li>
-              <li><Link to='/location/1'>Browse Events</Link></li>
               <li><a href="#" onClick={this.props.logout}>Log out</a></li>
               <li><Link to="/events/new"><div className="create-event">Create Event</div></Link></li>
               </ul>

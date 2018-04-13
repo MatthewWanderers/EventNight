@@ -9,6 +9,7 @@ json.extract! event, :id,
               :start,
               :end
 json.set! :location, event.location.city_name
+json.set! :loc_desc, event.location.description
 json.set! :start_time, event.start.localtime.strftime("%^b %-d, %-l:%M%p")
 if event.end
   json.set! :end_time, event.end.localtime.strftime("%^b %-d, %-l:%M%p")

@@ -13,7 +13,8 @@ import {
   ProtectedRoute,
 } from '../util/route_util';
 import EventIndexContainer from './main/event/event_index_container';
-// import BrowseEventsContainer from './main/events/browse_events_container';
+import BrowseLocationContainer from './main/location/browse_location_container';
+import BrowseCategoryContainer from './main/category/browse_category_container';
 import EventFormContainer from './main/event/event_form_container';
 import EventShowContainer from './main/event/event_show_container';
 
@@ -24,6 +25,10 @@ const App = ({store}) => (
       <ProtectedRoute exact path='/events/new' component={EventFormContainer} />
       <ProtectedRoute exact path='/events/:eventId/edit' component={EventFormContainer} />
       <ProtectedRoute exact path='/events/:eventId'component={EventShowContainer} />
+      <ProtectedRoute exact path='/location/:city_name'component={BrowseLocationContainer} />
+      <ProtectedRoute exact path='/location/'component={BrowseLocationContainer} />
+      <ProtectedRoute exact path='/category/:category_id'component={BrowseCategoryContainer} />
+      <ProtectedRoute exact path='/category/'component={BrowseCategoryContainer} />
       <Route exact path='/' component={EventIndexContainer} />
       <AuthRoute exact path="/login" component={SignInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
