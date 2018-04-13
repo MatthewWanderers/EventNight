@@ -146,7 +146,7 @@ Event.create(
   img_url: "https://res.cloudinary.com/do2qcwqsc/image/upload/v1523566971/1_ky40j5X-OrINlY3muivD4A.jpg",
   location_id: (1..6).to_a.sample,
   category_id: 4
-
+)
 
 Event.create(
   title: "A really good cat",
