@@ -12,12 +12,20 @@ For more info on what's going on behind the scenes, head over to the [Eventnight
 
 * #### Login/Sign Up
 On arrival to Eventnight, users are prompted to create an account or log in. The Demo Account is ready to go, or you can create your own account! After logging in, users are brought to the main page.
+![Login/Signup](/Users/appacademy/Desktop/EventNight/app/assets/images/log_in.gif)
+
+
 * #### Main Page
 The main page proudly displays all created events, which users can meander their way through. If you're looking for a specific kind of event or events close to you, head over to Browse Events in the navbar.
 * #### Browse by Location or Category
 Users can browse events by city or category type using a handy form at the top of the page which filters events.
+![Login/Signup](/Users/appacademy/Desktop/EventNight/app/assets/images/navigating.gif)
 * ### Event Creation
 Anyone adventurous enough to host their own event can easily set one up using the create events feature. You can edit or delete your event at any time if you need to update details or cancel.
+Creating an Event:
+![Creating an Event](/Users/appacademy/Desktop/EventNight/app/assets/images/creating_event.gif)
+Editing an Event:
+![Editing an Event](/Users/appacademy/Desktop/EventNight/app/assets/images/editing_event.gif)
 * ### Event Show Page
 The event show page allows quick access to important information about events and helps event organizers stand out.
 ## Future Direction
