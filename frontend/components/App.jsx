@@ -20,19 +20,19 @@ import EventShowContainer from './main/event/event_show_container';
 
 const App = ({store}) => (
   <div>
-    <ProtectedRoute path='/' component={NavBarContainer} />
+    <Route path='/' component={NavBarContainer} />
     <Switch>
-      <ProtectedRoute exact path='/events/new' component={EventFormContainer} />
-      <ProtectedRoute exact path='/events/:eventId/edit' component={EventFormContainer} />
-      <ProtectedRoute exact path='/events/:eventId'component={EventShowContainer} />
-      <ProtectedRoute exact path='/location/:city_name'component={BrowseLocationContainer} />
-      <ProtectedRoute exact path='/location/'component={BrowseLocationContainer} />
-      <ProtectedRoute exact path='/category/:category_id'component={BrowseCategoryContainer} />
-      <ProtectedRoute exact path='/category/'component={BrowseCategoryContainer} />
       <Route exact path='/' component={EventIndexContainer} />
-      <AuthRoute exact path="/login" component={SignInFormContainer} />
-      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      </Switch>
+      <Route exact path='/events/new' component={EventFormContainer} />
+      <Route exact path='/events/:eventId/edit' component={EventFormContainer} />
+      <Route exact path='/events/:eventId'component={EventShowContainer} />
+      <Route exact path='/location/:city_name'component={BrowseLocationContainer} />
+      <Route exact path='/location/'component={BrowseLocationContainer} />
+      <Route exact path='/category/:category_id'component={BrowseCategoryContainer} />
+      <Route exact path='/category/'component={BrowseCategoryContainer} /> */}
+      {/* <Route exact path="/login" component={SignInFormContainer} /> */}
+      {/* <Route exact path="/signup" component={SignUpFormContainer} />
+    </Switch>
   </div>
 );
 
